@@ -356,6 +356,14 @@
     }
   }
 
+  const getModelSummary = () => {
+    try {
+      return `${chat.settings.profile} [${chat.settings.model}]`
+    } catch {
+      return ''
+    }
+  }
+  
 </script>
 {#if chat}
 <ChatSettingsModal chatId={chatId} bind:show={showSettingsModal} />
@@ -401,7 +409,7 @@
     <p class="control is-expanded">
       <textarea
         class="input is-info is-focused chat-input auto-size"
-        placeholder="[{chat.settings.model}] Type your message here..."
+        placeholder="{getModelSummary()} Type your message here..."
         rows="1"
         on:keydown={e => {
           // Only send if Enter is pressed, not Shift+Enter
