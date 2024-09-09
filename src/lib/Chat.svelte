@@ -358,7 +358,7 @@
 
   const getModelSummary = () => {
     try {
-      return `${chat.settings.profile} [${chat.settings.model}]`
+      return `${chat.settings.profileName} [${chat.settings.model}]`
     } catch {
       return ''
     }
